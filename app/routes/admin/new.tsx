@@ -5,7 +5,7 @@ import {
   Form 
 } from "remix";
 import type { ActionFunction } from "remix";
-import { createPost } from "~/post";
+import { createPost } from "~/model/post";
 import invariant from "tiny-invariant";
 
 type PostError = {
