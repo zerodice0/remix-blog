@@ -32,14 +32,19 @@ export default function App() {
       </head>
       <body>
         <header className="container">
-          <hgroup>
-            <h1>Pico!</h1>
-          </hgroup>
+          <nav>
+            <ul>
+              <li><strong>Remix Blog Tutorial By BlackBear</strong></li>
+            </ul>
+            <ul>
+              <li><a href="/posts">Posts</a></li>
+              <li><a href="/admin">Admin</a></li>
+            </ul>
+          </nav>
         </header>
         <main className="container">
           <Outlet />
           <ScrollRestoration />
-          <button>Sample Button</button>
           {process.env.NODE_ENV === "development" && <LiveReload />}
         </main>
       </body>
