@@ -1,5 +1,7 @@
 ---
 title: 90s Mixtape
+writer: zerodice0
+digest: I made 90s Mixtape for this example.
 ---
 
 # 90s Mixtape

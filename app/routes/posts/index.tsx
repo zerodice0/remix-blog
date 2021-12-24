@@ -8,17 +8,33 @@ export const loader = () => {
 
 export default function Posts() {
   const posts = useLoaderData<Post[]>();
-  console.log(posts);
+  
   return (
     <div>
-      <h1>Posts</h1>
-      <ul>
-        {posts.map(post => (
-          <li key={post.slug}>
-            <Link to={post.slug}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <hgroup>
+        <h1>Posts</h1>
+        <h3>{posts.length} posts uploaded.</h3>
+      </hgroup>
+      
+      {posts.map(post => (
+        <article key={post.slug}>
+          <header>
+            <hgroup>
+              <h1>
+                <Link to={post.slug}>{post.title}</Link>
+              </h1>
+              <h4>
+                by {post.writer}
+              </h4>
+            </hgroup>
+          </header>
+          {post.digest}
+          <footer>
+            <Link to={post.slug}>Read more</Link>
+          </footer>
+        </article>
+      ))}
+      
     </div>
   );
 }

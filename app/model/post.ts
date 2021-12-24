@@ -7,22 +7,28 @@ import { marked } from "marked";
 export type Post = {
   slug: string;
   title: string;
+  writer: string;
+  digest: string;
 }
 
 type NewPost = {
   title: string;
   slug: string;
+  writer: string;
+  digest: string;
   markdown: string;
 }
 
 export type PostMarkdownAttributes = {
   title: string;
+  writer: string;
+  digest: string;
 };
 
 function isValidPostAttributes(
   attributes: any
 ): attributes is PostMarkdownAttributes {
-  return attributes?.title;
+  return attributes?.title && attributes?.writer;
 }
 
 const postsPath = path.join(__dirname, "..", "posts");
@@ -56,7 +62,9 @@ export async function getPosts() {
 
       return {
         slug: filename.replace(/\.md$/, ""),
-        title: attributes.title
+        title: attributes.title,
+        writer: attributes.writer,
+        digest: attributes.digest
       };
     })
   );
